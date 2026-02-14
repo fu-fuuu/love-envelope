@@ -164,30 +164,57 @@ body {
   --x: 30px;
 }
 @media (max-width: 480px) {
+  .page {
+    padding: 16px;
+  }
+
   .envelope {
-    height: 380px;
+    width: 100%;
+    max-width: 360px;
+    height: 320px;
   }
 
-  .paper {
-    height: 200px;
-    padding: 20px 16px;
-    font-size: 14px;
-  }
-
-  .paper h3 {
-    font-size: 18px;
-  }
-
-  .paper p {
-    font-size: 14px;
-    line-height: 1.6;
+  .env-back,
+  .env-left,
+  .env-right {
+    height: 180px;
+    bottom: 20px;
   }
 
   .envelope-flap {
-    height: 140px;
+    height: 120px;
+    top: 60px;
+  }
+
+  .paper {
+    left: 12px;
+    width: calc(100% - 24px);
+    height: 170px;
+    padding: 16px;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  .paper h3 {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+
+  .paper p {
+    font-size: 13px;
+    margin: 4px 0;
+  }
+
+  .envelope.open .paper {
+    transform: translateY(-20px);
   }
 
   .text {
     font-size: 14px;
+    margin-top: 16px;
+  }
+
+  .hearts span {
+    font-size: 28px;
   }
 }
