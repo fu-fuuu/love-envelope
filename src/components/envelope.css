@@ -1,0 +1,162 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Kanit", sans-serif;
+}
+
+/* หน้าจอ */
+.page {
+  height: 100vh;
+  background: #fdecef;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ซอง */
+.envelope {
+  position: relative;
+  width: 520px;
+  height: 470px;
+  cursor: pointer;
+  perspective: 1000px;
+  overflow: hidden;
+
+}
+
+/* ตัวซอง */
+.envelope-body {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 260px;
+  background: #f5bcbc;
+  border-radius: 0 0 10px 10px;
+  z-index: 1;
+}
+
+/* ฝาซอง */
+.envelope-flap {
+  position: absolute;
+  top: 210px;
+  width: 100%;
+  height: 160px;
+  background: #ee9f9f;
+  clip-path: polygon(0 0, 50% 100%, 100% 0);
+  transform-origin: 50% 0%;
+  transform: rotateX(0deg);
+  transition: transform 0.6s ease;
+  z-index: 4;
+}
+
+/* กระดาษ */
+.paper {
+  position: absolute;
+  left: 20px;
+  bottom: 0px;
+  width: calc(100% - 40px);
+  height: 250px;
+  background: white;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 32px 24px;
+  line-height: 1.9;
+  text-align: center;
+  transform: translateY(140%);
+  transition: transform 0.7s ease;
+  z-index: 3;
+}
+
+/* เปิด */
+.envelope.open .envelope-flap {
+  transform: rotateX(-180deg);
+  z-index: 1;
+}
+
+.envelope.open .paper {
+  transform: translateY(-220px);
+}
+
+/* ข้อความ */
+.text {
+  margin-top: 24px;
+  user-select: none;
+}
+
+.envelope-body {
+  z-index: 3;
+}
+
+.envelope-flap {
+  z-index: 4;
+}
+
+.paper {
+  z-index: 2;
+}
+
+.paper h3 {
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.paper p {
+  margin: 6px 0;
+}
+.hearts {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 999;
+}
+
+
+.hearts span {
+  position: absolute;
+  bottom: 140px;
+  opacity: 0;
+}
+
+/* trigger */
+.envelope.open .hearts span {
+  animation: heartScatter 3s ease-out forwards;
+}
+
+/* กระจายตำแหน่ง + ขนาด */
+.hearts span:nth-child(1) { left: 20%; font-size: 28px; animation-delay: 0s; }
+.hearts span:nth-child(2) { left: 35%; font-size: 34px; animation-delay: 0.2s; }
+.hearts span:nth-child(3) { left: 50%; font-size: 30px; animation-delay: 0.4s; }
+.hearts span:nth-child(4) { left: 65%; font-size: 38px; animation-delay: 0.6s; }
+.hearts span:nth-child(5) { left: 80%; font-size: 32px; animation-delay: 0.8s; }
+.hearts span:nth-child(6) { left: 42%; font-size: 26px; animation-delay: 1s; }
+.hearts span:nth-child(7) { left: 58%; font-size: 36px; animation-delay: 1.2s; }
+@keyframes heartScatter {
+  0% {
+    transform: translateY(0) translateX(0) scale(0.6);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    transform:
+      translateY(-200px)
+      translateX(var(--x, 0px))
+      rotate(15deg)
+      scale(1.2);
+    opacity: 0;
+  }
+}
+.hearts span:nth-child(odd) {
+  --x: -30px;
+}
+.hearts span:nth-child(even) {
+  --x: 30px;
+}
