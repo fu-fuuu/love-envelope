@@ -165,48 +165,17 @@ body {
 }
 @media (max-width: 480px) {
   .page {
-    padding-top: 16px;
-    padding-bottom: 24px;
+    padding: 0;
+    justify-content: center;
   }
 
   .envelope {
-    width: 92vw;
-    height: calc(92vw * 0.65);
-  }
-
-  .envelope-body {
-    height: 58%;
-    border-radius: 0 0 18px 18px;
-  }
-
-  .envelope-flap {
-    top: 38%;
-    height: 38%;
-  }
-
-  .paper {
-    left: 6%;
-    width: 88%;
-    height: 68%;
-    padding: 20px 16px;
-    transform: translateY(130%);
-  }
-
-  .envelope.open .paper {
-    transform: translateY(-70%);
-  }
-
-  .paper h3 {
-    font-size: 1rem;
-  }
-
-  .paper p {
-    font-size: 0.9rem;
+    width: 90vw;
+    height: auto;
+    aspect-ratio: 520 / 470;
   }
 
   .text {
-    margin-top: 16px;
-    font-size: 0.95rem;
+    margin-top: 12px;
   }
 }
-
