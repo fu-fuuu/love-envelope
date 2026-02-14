@@ -165,56 +165,48 @@ body {
 }
 @media (max-width: 480px) {
   .page {
-    padding: 16px;
+    padding-top: 16px;
+    padding-bottom: 24px;
   }
 
   .envelope {
-    width: 100%;
-    max-width: 360px;
-    height: 320px;
+    width: 92vw;
+    height: calc(92vw * 0.65);
   }
 
-  .env-back,
-  .env-left,
-  .env-right {
-    height: 180px;
-    bottom: 20px;
+  .envelope-body {
+    height: 58%;
+    border-radius: 0 0 18px 18px;
   }
 
   .envelope-flap {
-    height: 120px;
-    top: 60px;
+    top: 38%;
+    height: 38%;
   }
 
   .paper {
-    left: 12px;
-    width: calc(100% - 24px);
-    height: 170px;
-    padding: 16px;
-    font-size: 13px;
-    line-height: 1.6;
-  }
-
-  .paper h3 {
-    font-size: 16px;
-    margin-bottom: 8px;
-  }
-
-  .paper p {
-    font-size: 13px;
-    margin: 4px 0;
+    left: 6%;
+    width: 88%;
+    height: 68%;
+    padding: 20px 16px;
+    transform: translateY(130%);
   }
 
   .envelope.open .paper {
-    transform: translateY(-20px);
+    transform: translateY(-70%);
+  }
+
+  .paper h3 {
+    font-size: 1rem;
+  }
+
+  .paper p {
+    font-size: 0.9rem;
   }
 
   .text {
-    font-size: 14px;
     margin-top: 16px;
-  }
-
-  .hearts span {
-    font-size: 28px;
+    font-size: 0.95rem;
   }
 }
+
